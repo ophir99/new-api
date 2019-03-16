@@ -37,6 +37,7 @@ exports.login = (req, res) => {
                 let token_ = jwt.sign({email: req.body.email}, "SECRET", {
                     expiresIn: 86400
                 })
+                console.log(token_);
                 res.send({ result, token: token_});
             }
         }
