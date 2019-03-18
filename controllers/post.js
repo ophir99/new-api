@@ -25,3 +25,23 @@ exports.fetchAll = (req, res)=>{
         .then(result => res.send({result}))
         .catch(err => res.status(500).send(err))
 }
+
+exports.update = (req, res)=>{
+    post.update({
+        _id: req.params.id
+    }, {
+        $set:{
+            text: req.body.tweet
+        }
+    })
+    .then(
+        result => {
+            res.send({result})
+        }
+    )
+    .catch(
+        err =>{
+            res.status(500).send({err})
+        }
+    )
+}
