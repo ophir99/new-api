@@ -45,3 +45,11 @@ exports.update = (req, res)=>{
         }
     )
 }
+
+exports.delete = (req, res)=>{
+    post.deleteOne({
+        _id: req.params.id
+    })
+    .then(result => res.send({result}))
+    .catch(err => res.status(500).send({err}))
+}
